@@ -1,0 +1,383 @@
+
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    
+}
+
+/* Encabezado */
+
+header {
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    background-color: #fff;
+    padding: 20px 0;
+
+}
+
+img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+#title {
+    text-align: center;
+    /* Centra el texto del encabezado */
+    margin-bottom: 20px;
+    /* Añade un poco de espacio debajo del título */
+}
+
+header .container {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+
+.container nav i {
+    font-size: 3rem;
+    cursor: pointer;
+
+
+
+}
+
+.nav-card {
+
+    display: none;
+
+
+}
+
+.container nav button {
+    display: none;
+}
+
+.nav-card li {
+    list-style: none;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.container nav i:hover>.buy-card {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: 0;
+    background-color: #ffff;
+}
+
+.container nav i:hover .nav-card {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px 10px;
+    border-bottom: solid thin #e1e1e1;
+}
+
+.container nav i:hover .buy-card>button{
+display: block;
+width: 90%;
+padding: 1rem;
+margin: 10px auto;
+background-color: transparent;
+border: solid thin #e1e1e1;
+color: #494848;
+cursor: pointer;
+}
+.buy-card .nav-card li {
+    font-size: 9px; /* Ajusta este valor según el tamaño de letra que desees */
+    color: black;
+}
+
+
+.container nav i:hover .buy-card > button:hover{
+border: solid thin #494848;
+transition: all .4s;
+
+
+}  
+/* Contenido principal */
+button{
+    background-color: transparent;
+}
+main {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.catalogo {
+    flex-grow: 1;
+}
+
+.componente {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.componente:hover {
+    transform: translateY(-5px);
+}
+
+.componente img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.componente h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.componente p {
+    color: #666;
+    padding: 0 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Barra lateral */
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    padding: 10px;
+    margin: 0;
+    background-color: #333;
+    color: #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 1.5rem;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar ul li:last-child {
+    border-bottom: none;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Pie de página */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Formulario de inicio de sesión */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+}
+
+.login-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.catalogo .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    /* Espacio entre los elementos */
+}
+
+.componente {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+/*encabezdo */
+
+header {
+    background-color: #6449b9;
+    /* Cambia este color al que prefieras */
+    color: white;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header h2 {
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+/* boton login*/.boton-login {
+    background-color: #3CB371; 
+    color: whitesmoke; /* Color del texto */
+    border: none;
+    padding: 15px 30px; /* Aumenta el padding para hacer el botón más grande */
+    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boton-login i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+    color: black; /* Color del icono */
+    font-size: 20px; /* Aumenta el tamaño del icono */
+}
+
+.boton-login:hover {
+    background-color: #90EE90; /* Color de fondo del botón al pasar el ratón */
+}

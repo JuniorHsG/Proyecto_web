@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <form class="login-form" id="loginForm">
+      <h2>Iniciar Sesión</h2>
+      <div class="input-group">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" placeholder="Introduce tu usuario">
+      </div>
+      <div class="input-group">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" placeholder="Introduce tu contraseña">
+      </div>
+      <button type="submit">Iniciar Sesión</button>
+      <button id="regre">Regregar</button>
+    </form>
+   
+  </div>
+  <script >
+document.getElementById('regre').addEventListener('click', function() {
+            // Redirige a la página deseada al hacer clic en el botón Regresar
+            window.location.href = '/'; // Cambia '/otra-pagina.html' con la URL de la página a la que deseas redirigir
+        });
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    // Verificar si las credenciales son correctas
+    if (username === "admin" && password === "admin") {
+      window.location.href = "/Admin-edition"; // Cambia "ruta_de_redireccion" por la URL de la página a la que deseas redirigir
+    } else {
+      
+    }
+  });
+  </script>
+</body>
+</html>

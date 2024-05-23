@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Producto</title>
+    <link rel="stylesheet" href="css/act.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Modificar Producto</h1>
+        <form id="modifyProductForm">
+            <div class="form-group">
+                <label for="productId">ID del Producto:</label>
+                <input type="text" id="productId" name="productId" readonly>
+            </div>
+            <div class="form-group">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">URL de la Imagen:</label>
+                <input type="url" id="imageUrl" name="imageUrl" required>
+            </div>
+            <div class="form-group">
+                <label for="categorie">Categoría:</label>
+                <select id="categorie" name="categorie" required>
+                    <option value="Procesadores">Procesadores</option>
+                    <option value="Tarjetas Gráficas">Tarjetas Gráficas</option>
+                    <option value="Placas Base">Placas Base</option>
+                    <option value="Disco Duro">Disco Duro</option>
+                    <option value="Memorias RAM">Memorias RAM</option>
+                    <option value="Monitor">Monitor</option>
+                    <option value="Auriculares">Auriculares</option>
+                    <option value="Teclado">Teclado</option>
+                    <option value="Mouse">Mouse</option>
+                    <option value="Otros">Otros</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" id="stock" name="stock" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Precio:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+            <button type="submit">Modificar Producto</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('modifyProductForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const productId = document.getElementById('productId').value;
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const imageUrl = document.getElementById('imageUrl').value;
+            const categorie = document.getElementById('categorie').value;
+            const stock = document.getElementById('stock').value;
+            const price = document.getElementById('price').value;
+
+            const productData = {
+                title,
+                description,
+                imageUrl,
+                categorie,
+                stock,
+                price
+            };
+
+            try {
+                const response = await fetch(`/admin/products/${productId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(productData)
+                });
+
+                if (response.ok) {
+                    alert('Producto modificado exitosamente');
+                    window.location.href = '/Admin-edition';
+                } else {
+                    alert('Error al modificar el producto');
+                }
+            } catch (error) {
+                console.error('Error al modificar el producto:', error);
+                alert('Error al modificar el producto');
+            }
+           }
+    );
+
+        async function populateForm(productId) {
+            try {
+                const response = await fetch(`/admin/product/${productId}`);
+                if (!response.ok) {
+                    throw new Error('Error al obtener los datos del producto');
+                }
+                const product = await response.json();
+
+                document.getElementById('productId').value = product.uid;
+                document.getElementById('title').value = product.title;
+                document.getElementById('description').value = product.description;
+                document.getElementById('imageUrl').value = product.imageUrl;
+                document.getElementById('categorie').value = product.categorie;
+                document.getElementById('stock').value = product.stock;
+                document.getElementById('price').value = product.price;
+            } catch (error) {
+                console.error('Error al cargar los datos del producto:', error);
+                alert('Error al cargar los datos del producto');
+            }
+        }
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const productId = getQueryParam('productId');
+            if (productId) {
+                populateForm(productId);
+            }
+        });
+        
+    </script>
+</body>
+</html>
